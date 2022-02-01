@@ -88,6 +88,9 @@ class MungLanguage:
             elif code.startswith('코'):
                 now_add = False
                 code = code[1:]
+            
+            else:
+                raise SyntaxError(f'{self.index + 2}번째 줄에 이게 숫자야 임마아아아아앍! . / ~ 로 쓰렴 얘')
 
         return output
 
