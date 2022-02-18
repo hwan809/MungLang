@@ -231,7 +231,7 @@ class MungLanguage:
                 if now_moving:
                     now_moving = False
                     del code[self.index - 1]
-                    # print(f'moving to, {code[self.index]}')
+                    # print(f'moving to, {code[s.elf.index]}')
 
                 self.index = goto
             elif isinstance(goto, str):
@@ -239,7 +239,7 @@ class MungLanguage:
                 now_moving = True
                 # print(now_moving)
 
-    def compile_file(self, path):
+    def compile_file(self, path): 
         with open(path, encoding='utf-8-sig') as mte_file:
             code = mte_file.read().splitlines()
             self.compile(code)
@@ -247,4 +247,4 @@ class MungLanguage:
 
 if __name__ == '__main__':
     compiler = MungLanguage()
-    compiler.compile_file('munglangtest.mte')
+    compiler.compile_file(sys.argv[1])
