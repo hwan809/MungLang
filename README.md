@@ -1,5 +1,11 @@
 ﻿# MungLang
-케인인님 -3000딩 한판해요
+케인인님, -3000딩 한판해요
+
+여러 한국어 esolang들에 영감을 받고,    
+스트리머 '[케인](https://www.youtube.com/channel/UC0aKwoKNeqBaUwiEXmkQaGQ)' 님의 밈 중 하나인
+[[케인] 무빙맨](https://www.youtube.com/watch?v=92volEdYcCQ) 을 프로그래밍 언어로 구현합니다.
+
+> 다른 언어 구현체 및 리팩토링 PR은 환영입니다! 🙋
 
     춘잣!
     뭉..코..코..코..코..
