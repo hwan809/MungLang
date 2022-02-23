@@ -12,6 +12,7 @@ TYPE_BLANK = 'BLANK'
 
 class MungLanguage:
     def __init__(self):
+        self.result = []
         self.index = 0
         self.data = [0] * 256
 
@@ -183,21 +184,24 @@ class MungLanguage:
                 raise SyntaxError(f'얘! {self.index + 2}번째 줄에 지금 그걸 출력하겠다고 하는 거니?')
 
             if not number or number == '0':
-                print('\n', end='')
+                self.print('\n')
             else:
                 # print(f'{self.index} line, {number}')
                 number_int = self.get_number(number)
                 if number_int > 0:
                     number_ascii = chr(number_int)
-                    print(number_ascii, end='')
+                    self.print(number_ascii)
                 else:
-                    print(-number_int, end='')
+                    self.print(-number_int)
         elif TYPE == TYPE_END:
             number = code[4:]
-            number_int = self.get_number(number)
 
-            print(number_int, end='')
-            # self.index = self.
+            if number:
+                number_int = self.get_number(number)
+                self.print(number_int)
+
+            return True
+
         elif TYPE == TYPE_IF:
             command = code[6:]  # 유링계숭한? 후.
 
@@ -212,8 +216,28 @@ class MungLanguage:
 
             return number_int - 2
 
+    def print(self, print_data):
+        # print(print_data, end='')
+        now_data = ''
+
+        if len(self.result) != 0:
+            now_data = self.result[-1]
+        else:
+            self.result.append('')
+
+        if print_data == '\n':
+            if now_data == '':
+                self.result.pop()
+                self.result.append('\n')
+                self.result.append('')
+            else:
+                self.result.append('')
+        else:
+            self.result[-1] += str(print_data)
+
     def compile(self, code):
         self.index = 0
+        self.result = []
 
         if code[0] != '춘잣!':
             raise SyntaxError('얘! 뭉탱어는 춘잣! 아니면 겸상 안한단다? 개발이 잘 안되니?')
@@ -227,7 +251,10 @@ class MungLanguage:
             goto = self.compileLine(code[self.index])
             self.index += 1
 
-            if isinstance(goto, int):
+            if isinstance(goto, bool):
+                return self.result
+
+            elif isinstance(goto, int):
                 if now_moving:
                     now_moving = False
                     del code[self.index - 1]
