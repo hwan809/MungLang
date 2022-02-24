@@ -199,12 +199,14 @@ MungLang(뭉탱어) 의 문법을 서술하는 글이란다.
 ```
 2단부터 구구단을 출력하는 코드란다.
 
-### 컴파일 방법
+### 컴파일러
+
+#### MungLang_Python
 
 ```
 ...
 git clone https://github.com/hwan809/MungLang.git
 cd MungLang
-python compiler.py [파일명(examples/gugudan.mte)]
+python MungLang_Python/compiler.py [파일명(examples/gugudan.mte)]
 ```
 ![image](https://user-images.githubusercontent.com/55339366/154715252-43a96c8c-9538-4438-9dd5-b65255bc8e09.png)
