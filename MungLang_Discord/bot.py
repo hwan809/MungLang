@@ -38,12 +38,9 @@ async def mung(ctx, *, code:str = None):
 
     try:
         code = code.split('\n')[1:-1]
-        print(code)
 
         result = compiler.compile(code)
         result_string = '```\n' + '\n'.join(result) + '\n```'
-
-        print(result)
 
         await ctx.send(result_string)
 
