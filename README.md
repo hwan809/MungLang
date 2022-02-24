@@ -210,3 +210,17 @@ cd MungLang
 python MungLang_Python/compiler.py [파일명(examples/gugudan.mte)]
 ```
 ![image](https://user-images.githubusercontent.com/55339366/154715252-43a96c8c-9538-4438-9dd5-b65255bc8e09.png)
+
+#### MungLang_Discord
+`뭉랭을 디스코드 환경에서 컴파일합니다`
+
+```
+git clone https://github.com/hwan809/MungLang.git
+cd MungLang
+cd MungLang_Discord
+pip install discord
+copy con token.txt
+[본인의 봇 토큰 입력]
+^C (Ctrl + C)
+python bot.py
+```
