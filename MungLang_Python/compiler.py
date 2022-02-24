@@ -217,7 +217,7 @@ class MungLanguage:
             return number_int - 2
 
     def print(self, print_data):
-        # print(print_data, end='')
+        print(print_data, end='')
         now_data = ''
 
         if len(self.result) != 0:
@@ -265,6 +265,8 @@ class MungLanguage:
                 code.insert(self.index, goto)
                 now_moving = True
                 # print(now_moving)
+
+        return self.result
 
     def compile_file(self, path): 
         with open(path, encoding='utf-8-sig') as mte_file:
