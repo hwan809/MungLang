@@ -238,11 +238,14 @@ class MungLanguage:
     def compile(self, code):
         self.index = 0
         self.result = []
+        
+        while code[self.index] != '춘잣!':
+            self.index += 1
+            
+            if self.index == len(code):
+                raise SyntaxError('얘! 뭉탱어는 춘잣! 아니면 겸상 안한단다? 개발이 잘 안되니?')
 
-        if code[0] != '춘잣!':
-            raise SyntaxError('얘! 뭉탱어는 춘잣! 아니면 겸상 안한단다? 개발이 잘 안되니?')
-
-        del code[0]
+        del code[self.index]
         now_moving = False
 
         while self.index < len(code):
